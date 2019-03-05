@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ViewbalitaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar  color={{color}}>
+    <ion-title>{{title}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div text-center padding-bottom>
+    <img src="assets/icon/avatar.png" width="100" height="100">
+  </div>
+  <ion-list>
+    <ion-item-divider color="primary" >
+      <h2>Pengukuran</h2>
+      <ion-icon item-end name={{icon1}} (click)="toggleShown1()" ></ion-icon>
+    </ion-item-divider>
+    <div *ngIf="idx == 1" >
+    <div *ngFor="let nama of name; let j = index" padding-left padding-right>
+      <ion-item-divider color="danger" (click)="toggleShown2(nama.id, j)" >{{nama.tanggal}}
+          <ion-icon item-end name={{icon2[j]}} ></ion-icon>
+      </ion-item-divider>
+        <div *ngIf="idx3[j] == nama.id" padding-left padding-right>
+      <ion-item >Berat: {{nama.berat+ ' kg'}}</ion-item>
+      <ion-item >Tinggi: {{nama.tinggi +' cm'}}</ion-item>
+      <ion-item >Lingkar Kepala: {{nama.lingkar_kepala +' cm'}}</ion-item>
+      <ion-item >Petugas: {{nama.petugas}}</ion-item>
+    </div>
+    </div>
+  </div>
+  <ion-item-divider color="primary" (click)="toggleShown3()">
+    <h2>Imunisasi</h2>
+    <ion-icon item-end name={{icon1}} ></ion-icon>
+  </ion-item-divider>
+  <ion-item-divider color="primary" (click)="toggleShown5()">
+    <h2>Vitamin</h2>
+    <ion-icon item-end name={{icon1}} ></ion-icon>
+  </ion-item-divider>
+</ion-list>
+<ion-fab bottom right>
+  <button ion-fab (click)="graph()"><ion-icon name="stats"></ion-icon></button>
+</ion-fab>
+</ion-content>

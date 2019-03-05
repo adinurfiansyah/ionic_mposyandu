@@ -1,0 +1,40 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-content padding style="background-color:#f0f8ff">
+  <div text-center>
+    <ion-img width="150" height="190" src="assets/icon/logo_u.jpg" alt="Posyandu"></ion-img>
+  </div>
+  <ion-list >
+    <form [formGroup]="authForm">
+    <ion-item class="color_blue">
+      <ion-label stacked>Username</ion-label>
+      <ion-input formControlName="username" [(ngModel)]="username" type="text"></ion-input>
+    </ion-item>
+    <ion-item class="color_blue" *ngIf="authForm.controls.username.hasError('required') && authForm.controls.username.touched">
+            <p class=" p-danger">Sorry, username tidak boleh kosong!</p>
+        </ion-item>
+        <ion-item class="color_blue" *ngIf="authForm.controls.username.hasError('minlength') && authForm.controls.username.touched">
+            <p class=" p-danger">Sorry, panjang minimum username 8!</p>
+          </ion-item>
+    <ion-item class="color_blue">
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="password" [(ngModel)]="password" type="password"></ion-input>
+    </ion-item>
+    <ion-item class="color_blue" *ngIf="authForm.controls.password.hasError('required') && authForm.controls.password.touched">
+            <p class=" p-danger">Sorry, password tidak boleh kosong!</p>
+        </ion-item>
+        <ion-item class="color_blue" *ngIf="authForm.controls.password.hasError('minlength') && authForm.controls.password.touched">
+            <p class=" p-danger">Sorry, panjang minimum password 8!</p>
+        </ion-item>
+    <div text-center>
+      <button ion-button full (click)="login()">Login</button>
+    </div>
+  </form>
+  </ion-list>
+</ion-content>

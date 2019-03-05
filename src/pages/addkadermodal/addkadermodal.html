@@ -1,0 +1,65 @@
+<!--
+  Generated template for the AddkadermodalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tambah Kader</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div text-center>
+    <img src="/assets/icon/avatar.png" width="100" height="100">
+  </div>
+  <ion-list padding-top>
+      <form [formGroup]="authForm">
+    <ion-item>
+      <ion-label stacked>Nama</ion-label>
+      <ion-input formControlName="nnama" [(ngModel)]="nama" type="text" value={{nama}}></ion-input>
+    </ion-item>
+    <ion-item class="color_blue" *ngIf="authForm.controls.nnama.hasError('required') && authForm.controls.nnama.touched">
+            <p class=" p-danger">Sorry, nama tidak boleh kosong!</p>
+        </ion-item>
+        <ion-item class="color_blue" *ngIf="authForm.controls.nnama.hasError('minlength') && authForm.controls.nnama.touched">
+            <p class=" p-danger">Sorry, panjang minimum nama 8!</p>
+        </ion-item>
+    <ion-item>
+      <ion-label stacked>Username</ion-label>
+      <ion-input formControlName="nusername" [(ngModel)]="username" type="text" value={{username}}></ion-input>
+    </ion-item>
+    <ion-item class="color_blue" *ngIf="authForm.controls.nusername.hasError('required') && authForm.controls.nusername.touched">
+            <p class=" p-danger">Sorry, username tidak boleh kosong!</p>
+        </ion-item>
+        <ion-item class="color_blue" *ngIf="authForm.controls.nusername.hasError('minlength') && authForm.controls.nusername.touched">
+            <p class=" p-danger">Sorry, panjang minimum username 8!</p>
+        </ion-item>
+    <ion-item>
+      <ion-label stacked>Password</ion-label>
+      <ion-input formControlName="npassword" [(ngModel)]="password" type="text" value={{password}}></ion-input>
+    </ion-item>
+    <ion-item class="color_blue" *ngIf="authForm.controls.npassword.hasError('required') && authForm.controls.npassword.touched">
+            <p class=" p-danger">Sorry, password tidak boleh kosong!</p>
+        </ion-item>
+        <ion-item class="color_blue" *ngIf="authForm.controls.npassword.hasError('minlength') && authForm.controls.npassword.touched">
+            <p class=" p-danger">Sorry, panjang minimum password 8!</p>
+        </ion-item>
+    <ion-item>
+    <ion-label stacked>Alamat</ion-label>
+    <ion-input formControlName="nalamat" [(ngModel)]="alamat" type="text" value={{alamat}}></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Telepon</ion-label>
+      <ion-input formControlName="ntelepon" [(ngModel)]="telepon" type="text" value={{telepon}}></ion-input>
+    </ion-item>
+    <div text-center>
+      <button  ion-button full (click)="save()">Simpan</button>
+    </div>
+  </form>
+  </ion-list>
+</ion-content>
